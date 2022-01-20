@@ -20,7 +20,7 @@ const Search = ({ query, setQuery, fetch }) => {
     <Form onSubmit={handleSubmit} className="d-flex justify-content-center">
       <Row>
         <Col md={4}>
-          <Form.Group>
+          <Form.Group className="my-2">
             <Form.Control
               type="text"
               placeholder="Enter a city name"
@@ -31,8 +31,8 @@ const Search = ({ query, setQuery, fetch }) => {
           </Form.Group>
         </Col>
         <Col md={4}>
-          <Form.Group>
-            <Form.Select>
+          <Form.Group className="my-2">
+            <Form.Select name="country" onChange={handleChange}>
               <option>Select country</option>
               {country.map((c, i) => (
                 <option value={c.Code} key={i}>
@@ -42,7 +42,7 @@ const Search = ({ query, setQuery, fetch }) => {
             </Form.Select>
           </Form.Group>
         </Col>
-        <Col md={4} className="d-flex justify-content-center">
+        <Col md={4} className="d-flex justify-content-center my-2">
           <Button type="submit">Check Weather</Button>
         </Col>
       </Row>

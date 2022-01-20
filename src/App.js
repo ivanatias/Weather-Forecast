@@ -3,19 +3,23 @@ import { useQuery } from "react-query";
 import { useState } from "react";
 import Search from "./components/Search";
 import Weather from "./components/Weather";
+import { fetchData } from "./API/httpRequest";
 
 
 function App() {
   const [query, setQuery] = useState({});
 
-  const { data, status, isFetching, isError, refetch } = useQuery("weather", {
-    enabled: false,
-    refetchOnWindowFocus: false,
-  })
+  const { data, status, isFetching, isError, refetch } = useQuery("weather",
+    () => fetchData(query),
+    {
+      enabled: false,
+      refetchOnWindowFocus: false,
+    })
 
+  console.log(data);
 
   return (
-    <Container className=" py-3">
+    <Container className="d-flex flex-column align-items-center py-3">
       <h1 className="text-center">Weather Forecast App</h1>
       <Search query={query} setQuery={setQuery} fetch={refetch} />
       {isFetching ? "Loading ..." :
