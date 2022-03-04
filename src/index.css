@@ -3,3 +3,13 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+.weather-card,
+.left-weather-card {
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+
+.left-weather-card {
+  background-color: #98c7ce;
+}
